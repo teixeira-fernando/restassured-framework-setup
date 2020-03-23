@@ -1,0 +1,7 @@
+.idea
+POCRestAssured.iml
+target/
+.settings
+.project
+.classpath
+.vscode
