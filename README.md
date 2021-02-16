@@ -20,7 +20,7 @@ By default, the tests are configured to use the properties values from the QA en
 | develop | `mvn test -Denvironment=dev` |
 | qa | `mvn test -Denvironment=qa` |
 
-## Profiles
+## Groups
 The test suites can be executed using an IDE or by command line.
 If you execute `mvn test`, tall the tests will be executed by default
 
