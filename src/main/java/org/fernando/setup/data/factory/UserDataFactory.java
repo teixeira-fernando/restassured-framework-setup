@@ -19,21 +19,30 @@ public class UserDataFactory {
     return user;
   }
 
+  public User userWithEmptyLastName(){
+    User user = newUser();
+    user.setLastName(StringUtils.EMPTY);
+    return user;
+  }
+
+  public User userWithEmptyEmail(){
+    User user = newUser();
+    user.setEmail(StringUtils.EMPTY);
+    return user;
+  }
+
+  public User userWithEmptyAvatar(){
+    User user = newUser();
+    user.setAvatar(StringUtils.EMPTY);
+    return user;
+  }
+
   public User userMissingAllInformation(){
     return new UserBuilder()
             .firstName(StringUtils.EMPTY)
             .lastName(faker.name().lastName())
             .email(faker.internet().emailAddress())
             .avatar(faker.internet().image())
-            .build();
-  }
-
-  public User existingUser(){
-    return new UserBuilder()
-            .firstName("test")
-            .lastName("test")
-            .email("test@gmail.com")
-            .avatar("avatar")
             .build();
   }
 
