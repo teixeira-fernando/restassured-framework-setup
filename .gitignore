@@ -6,3 +6,4 @@ target/
 .classpath
 .vscode
 allure-results
+.allure/

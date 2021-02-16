@@ -18,7 +18,7 @@ public class ConfigurationManager {
 
     private static void setEnvironment(){
         String environment = System.getProperty(ENVIRONMENT);
-        String actualEnv = environment == null ? "hml" : environment;
+        String actualEnv = environment == null ? "qa" : environment;
 
         System.setProperty(ENVIRONMENT, actualEnv);
         ConfigFactory.setProperty(ENVIRONMENT, actualEnv);

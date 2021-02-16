@@ -28,6 +28,15 @@ public class UserDataFactory {
             .build();
   }
 
+  public User existingUser(){
+    return new UserBuilder()
+            .firstName("test")
+            .lastName("test")
+            .email("test@gmail.com")
+            .avatar("avatar")
+            .build();
+  }
+
   public User newUser() {
     return new UserBuilder()
         .firstName(faker.name().firstName())
