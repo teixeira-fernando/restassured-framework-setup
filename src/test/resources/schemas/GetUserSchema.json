@@ -29,12 +29,9 @@
         "avatar"
       ]
     },
-    "ad": {
+    "support": {
       "type": "object",
       "properties": {
-        "company": {
-          "type": "string"
-        },
         "url": {
           "type": "string"
         },
@@ -43,7 +40,6 @@
         }
       },
       "required": [
-        "company",
         "url",
         "text"
       ]
@@ -51,6 +47,6 @@
   },
   "required": [
     "data",
-    "ad"
+    "support"
   ]
 }
