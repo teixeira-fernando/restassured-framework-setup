@@ -60,13 +60,8 @@ Notice that it is possible to select an environment, a group and generate a repo
 
 ### src/main/java
 
-#### test
+#### baseRequest
 Base Test that sets the initial aspects to make the requests using RestAssured.
-It also has the configuration to deal with `BigDecimal` returns and SSL configuration.
-
-#### client
-Classes that do some actions in their endpoints. It's used my the `FullSimulationE2ETest` to demonstrate and e2e
-scenario.
 
 #### commons
 It contains a class where will format the URL expected when we create a new resource in the `simulation` endpoint.
@@ -106,11 +101,6 @@ It contains a class having the data related to the test groups.
 Model and Builder class to
 [mapping objects thought serialization and deserialization](https://github.com/rest-assured/rest-assured/wiki/Usage#object-mapping)
 in use with Rest-Assured.
-
-#### specs
-Request and Response specifications used by the clients and e2e tests.
-The class `InitialStepsSpec` set the basePath, baseURI, and port for the custom specs.
-The classes `RestrictionsSpecs` and `SimulationsSpecs` contains the implementation of request and response specifications.
 
 ### src/test/resources
 It has a `schemas` folder with the JSON Schemas to enable Contract Testing using Rest-Assured. Also, the properties file to easily configure the API URI.
