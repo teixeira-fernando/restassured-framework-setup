@@ -1,4 +1,4 @@
-# Rest Assured Basic Setup and Architecture
+# Rest Assured Architecture Setup
 
 This repository contains the configuration and architecture to create API automated tests using Rest Assured.
 
