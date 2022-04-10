@@ -1,8 +1,6 @@
-# Rest Assured Architecture Setup
+# Rest Assured Architecture Setup <img alt="Rest Assured Logo" height="50" src="imgs/rest-assured-icon.png" width="50"/>
 
 This repository contains the configuration and architecture to create API automated tests using Rest Assured.
-
-![Rest Assured Logo](imgs/rest-assured-icon.png)
 
 <b>The test examples are based on the APIs provided by</b> [Reqres.in](https://reqres.in/)
 
