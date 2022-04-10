@@ -4,40 +4,43 @@ This repository contains the configuration and architecture to create API automa
 
 ![Rest Assured Logo](imgs/rest-assured-icon.png)
 
-<b>The test examples created here were based on the following APIs:</b> [Reqres.in](https://reqres.in/)
+<b>The test examples are based on the APIs provided by</b> [Reqres.in](https://reqres.in/)
 
-# Required software
+# Required Software
 * Java JDK 11+
 * Maven
 * [Lombok](https://www.baeldung.com/lombok-ide)
 
+## Libraries used in the project
+* [RestAssured](http://rest-assured.io/) library to test REST APIs
+* [JUnit 5](https://junit.org/junit5/) to support the test creation
+* [Owner](http://owner.aeonbits.org/) to manage the property files
+* [java-faker](https://github.com/DiUS/java-faker) to generate fake data
+* [Log4J2](https://logging.apache.org/log4j/2.x/) as the logging strategy
+* [Allure Report](https://docs.qameta.io/allure/) as the testing report strategy
+
 ## Environments
-By default, the tests are configured to use the properties values from the QA environment, but it is possible to change that using the property `environment`. Check it out some possibilities:
+By default, the tests use the properties values from the QA environment, but it is possible to change that using the property `environment`. Check out some possibilities:
 
 | run | command |
 |-----|---------|
-| local | `mvn test -Denvironment=local` |
-| develop | `mvn test -Denvironment=dev` |
-| qa | `mvn test -Denvironment=qa` |
+| local | ```mvn test -Denvironment=local``` |
+| develop | ```mvn test -Denvironment=dev``` |
+| qa | ```mvn test -Denvironment=qa``` |
 
 ## Groups
-The test suites can be executed using an IDE or by command line.
-If you execute `mvn test`, tall the tests will be executed by default
+If you execute `mvn test`, all the tests will be executed by default.
 
 To run different groups/test suites, you can use the property `-D`, including the group name. Take a look on some examples:
 
 | run | command |
 |-----|---------|
-| login tests | `mvn -Dgroups="login" test` |
-| user tests | `mvn -Dgroups="user" test` |
-| all tests | `mvn test` |
+| login tests | ```mvn -Dgroups="login" test``` |
+| user tests | ```mvn -Dgroups="user" test``` |
+| all tests | ```mvn test``` |
 
 ## Groups + Reports
-This project uses Allure Repor# Libraries
-* [Owner](http://owner.aeonbits.org/) for property files management
-* [java-faker](https://github.com/DiUS/java-faker) for fake data generation
-* [RestAssured](http://rest-assured.io/) API tests framework
- 
+
 To automatically generate the test report. You can use the command line to generate it in two ways:
 
 * `mvn allure:serve`: will open the HTML report into the browser
@@ -49,38 +52,34 @@ You can also use the profiles to generate reports from a specific test suite:
 
 | run | command |
 |-----|---------|
-| login report | `mvn test allure:report -Dgroups="login"` |
-| user report | `mvn test allure:report -Dgroups="user"` |
-| all tests report | `mvn test allure:report` |
+| login report | ```mvn test allure:report -Dgroups="login"``` |
+| user report | ```mvn test allure:report -Dgroups="user"``` |
+| all tests report | ```mvn test allure:report``` |
 
 The HTML report is generated in the following path: `target > site > allure-maven-plugin > index.html`.
 
 Notice that it is possible to select an environment, a group and generate a report with a unique command:
 
-`mvn test allure:report -Denvironment=dev -Dgroups="user"`
+```mvn test allure:report -Denvironment=dev -Dgroups="user"```
 
 # About the Project Structure
 
-### src/main/java
-
 #### baseRequest
-Base Test that sets the initial aspects to make the requests using RestAssured.
+Base Test that sets the initial settings to execute requests using RestAssured.
 
 #### commons
-It contains a class where will format the URL expected when we create a new resource in the `simulation` endpoint.
-You can add any class that can be used in the project.
+It contains any class that is used in the entire project. For example, it has the HeadersDefinition class that
+that contains the headers configuration used in all the test requests.
 
 #### config
-The class `Configuration` is the connections between the property file `api.properties` located in `src/test/resources/`.
+The class `Configuration` loads the property files located in `src/test/resources/conf`, based on the environment selected for the test run.
 
-The `@Config.Sources` load the properties file and match the attributes with the `@Key`, so you automatically have the value.
-You can see two sources.
-The first one will get the property values from the system (as environment variables or from the command line) in the case you want to change it, for example, in a pipeline.
-The second will load the `api.properties` file from the classpath.
 ```java
-@Config.Sources({
-    "system:properties",
-    "classpath:api.properties"})
+@LoadPolicy(LoadType.MERGE)
+@Config.Sources({"classpath:conf/${environment}.properties"})
+public interface Configuration extends Config{
+    ...
+}
 ```
 
 The environment variable is read on the `ConfiguratorManager`.
@@ -88,32 +87,26 @@ This class reduces the amount of code necessary to get any information on the pr
 
 This strategy uses [Owner](http://owner.aeonbits.org/) library
 
-#### data
 
-##### factory
+##### data/factory
 Test Data Factory classes using [java-faker](https://github.com/DiUS/java-faker) to generate fake data and [Lombok] to
 create the objects using the Builder pattern.
 
-##### provider
+##### data/provider
 JUnit 5 Arguments to reduce the amount of code and maintenance for the functional tests on `SimulationsFunctionalTest`
 
-##### suite
+##### data/suite
 It contains a class having the data related to the test groups.
 
-#### model
+##### data/support
+Includes classes to generate data part of pre-conditions for some test cases
+
+#### data/model
 Model and Builder class to
-[mapping objects thought serialization and deserialization](https://github.com/rest-assured/rest-assured/wiki/Usage#object-mapping)
+[map objects thought serialization and deserialization](https://github.com/rest-assured/rest-assured/wiki/Usage#object-mapping)
 in use with Rest-Assured.
 
 ### src/test/resources
 It has a `schemas` folder with the JSON Schemas to enable Contract Testing using Rest-Assured. Also, the properties file to easily configure the API URI.
-
-## Libraries
-* [RestAssured](http://rest-assured.io/) library to test REST APIs
-* [JUnit 5](https://junit.org/junit5/) to support the test creation
-* [Owner](http://owner.aeonbits.org/) to manage the property files
-* [java-faker](https://github.com/DiUS/java-faker) to generate fake data
-* [Log4J2](https://logging.apache.org/log4j/2.x/) as the logging strategy
-* [Allure Report](https://docs.qameta.io/allure/) as the testing report strategy
 
 ### Credits to [Elias Nogueira](https://github.com/eliasnogueira) for influencing me with many ideas applied to this project
