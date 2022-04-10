@@ -25,7 +25,6 @@ public abstract class BaseAPI {
     RestAssured.config =
         RestAssuredConfig.newConfig().sslConfig(new SSLConfig().allowAllHostnames());
 
-    RestAssured.useRelaxedHTTPSValidation();
     RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
   }
 }
