@@ -34,13 +34,16 @@ To run different groups/test suites, you can use the property `-D`, including th
 
 ## Groups + Reports
 This project uses Allure Repor# Libraries
-* [Owner](http://owner.aeonbits.org/) para gestão de property files
-* [java-faker](https://github.com/DiUS/java-faker) geração de dados fake
-* [RestAssured](http://rest-assured.io/) framework para testes de API Rest
-t to automatically generate the test report. You can use the command line to generate it in two ways:
+* [Owner](http://owner.aeonbits.org/) for property files management
+* [java-faker](https://github.com/DiUS/java-faker) for fake data generation
+* [RestAssured](http://rest-assured.io/) API tests framework
+ 
+To automatically generate the test report. You can use the command line to generate it in two ways:
 
 * `mvn allure:serve`: will open the HTML report into the browser
 * `mvn allure:report`: will generate the HTML port at target/site/allure-maven-plugin folder
+
+![Generated Allure Report](imgs/allure-report.png)
 
 You can also use the profiles to generate reports from a specific test suite:
 
