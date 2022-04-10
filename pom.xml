@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.fernando.setup</groupId>
-    <artifactId>POCRestAssured</artifactId>
+    <artifactId>RestAssuredSetup</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <java-compiler.version>11</java-compiler.version>
