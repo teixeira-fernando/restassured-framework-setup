@@ -13,4 +13,10 @@ public interface Configuration extends Config{
 
     @Key("env.user.url")
     String userUrl();
+
+    @Key("env.credentials.userEmail")
+    String userEmailCredential();
+
+    @Key("env.credentials.password")
+    String userPasswordCredential();
 }
