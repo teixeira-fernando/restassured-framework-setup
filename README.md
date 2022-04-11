@@ -1,3 +1,5 @@
+[![Running Rest Assured Tests](https://github.com/teixeira-fernando/restassured-framework-setup/actions/workflows/tests.yml/badge.svg)](https://github.com/teixeira-fernando/restassured-framework-setup/actions/workflows/tests.yml)
+
 # Rest Assured Architecture Setup <img alt="Rest Assured Logo" height="50" src="imgs/rest-assured-icon.png" width="50"/>
 
 This repository contains the configuration and architecture to create API automated tests using Rest Assured.
