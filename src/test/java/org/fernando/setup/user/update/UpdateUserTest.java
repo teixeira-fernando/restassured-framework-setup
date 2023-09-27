@@ -28,7 +28,7 @@ public class UpdateUserTest extends BaseAPI {
     void updateUserSuccessfully(){
 
         User user = userDataFactory.newUser();
-        new PreConditionsSupport().insertUser(user);
+        String userId = new PreConditionsSupport().insertUser(user);
 
         String oldName = user.getFirstName();
         user.setFirstName("New name");
@@ -38,7 +38,7 @@ public class UpdateUserTest extends BaseAPI {
                 .headers(this.headers)
                 .body(user)
                 .when()
-                .patch(this.props.userUrl())
+                .patch(this.props.userUrl() + "/"+userId)
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .body(matchesJsonSchemaInClasspath("schemas/UpdateUserSchema.json"))
