@@ -15,7 +15,7 @@
         <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
 
-        <restassured.version>5.3.2</restassured.version>
+        <restassured.version>5.4.0</restassured.version>
         <junit.jupiter.version>5.10.1</junit.jupiter.version>
         <assertj.version>3.24.2</assertj.version>
         <javafaker.version>1.0.2</javafaker.version>
