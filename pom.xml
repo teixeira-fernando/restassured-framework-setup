@@ -21,7 +21,7 @@
         <javafaker.version>1.0.2</javafaker.version>
         <owner.version>1.0.12</owner.version>
         <log4j.version>2.22.1</log4j.version>
-        <slf4j.version>2.0.9</slf4j.version>
+        <slf4j.version>2.0.10</slf4j.version>
         <allure.version>2.25.0</allure.version>
         <allure-maven.version>2.12.0</allure-maven.version>
         <aspectj.version>1.9.21</aspectj.version>
