@@ -24,7 +24,7 @@
         <slf4j.version>2.0.12</slf4j.version>
         <allure.version>2.26.0</allure.version>
         <allure-maven.version>2.12.0</allure-maven.version>
-        <aspectj.version>1.9.21.2</aspectj.version>
+        <aspectj.version>1.9.22</aspectj.version>
         <allure.cmd.download.url>
             https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
         </allure.cmd.download.url>
