@@ -11,20 +11,20 @@
         <java-compiler.version>11</java-compiler.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.16.0</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.6.0</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
 
-        <restassured.version>5.5.1</restassured.version>
-        <junit.jupiter.version>5.11.4</junit.jupiter.version>
-        <assertj.version>3.27.3</assertj.version>
+        <restassured.version>5.5.7</restassured.version>
+        <junit.jupiter.version>5.14.4</junit.jupiter.version>
+        <assertj.version>3.27.7</assertj.version>
         <javafaker.version>1.0.2</javafaker.version>
         <owner.version>1.0.12</owner.version>
-        <log4j.version>2.24.3</log4j.version>
-        <slf4j.version>2.0.16</slf4j.version>
-        <allure.version>2.29.1</allure.version>
-        <allure-maven.version>2.15.2</allure-maven.version>
-        <aspectj.version>1.9.22.1</aspectj.version>
+        <log4j.version>2.25.5</log4j.version>
+        <slf4j.version>2.0.19</slf4j.version>
+        <allure.version>2.35.5</allure.version>
+        <allure-maven.version>2.18.0</allure-maven.version>
+        <aspectj.version>1.9.25.1</aspectj.version>
         <allure.cmd.download.url>
             https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
         </allure.cmd.download.url>
@@ -94,7 +94,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
-            <version>2.29.1</version>
+            <version>2.35.5</version>
             <scope>test</scope>
         </dependency>
 
@@ -112,7 +112,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.36</version>
+            <version>1.18.48</version>
         </dependency>
 
     </dependencies>
